@@ -1,0 +1,289 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #212121;
+    min-height: 100vh;
+    color: rgb(92, 83, 0);
+}
+
+/* header */
+.header {
+    background: #2e2e2e;    
+    position: relative;
+    max-width: 80vw;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    z-index: 1;
+}
+
+.header a {
+    text-decoration: none;
+    color: #bb85ff;
+}
+
+.header ul {
+    list-style: none;
+}
+
+.logo {
+    font-size: 2rem;
+}
+
+.menu-items {
+    display: flex;
+    align-items: center;
+}
+
+.menu-items li {
+    padding: 0.5rem 1rem;
+    transition: background 0.3s ease-in-out;
+}
+
+.menu-items li:hover {
+    background: transparent;
+    border: solid 0.5px #d1acff56;
+}
+
+/* downarrow */
+.menu-item .fas {
+    padding-left: 7px;
+    padding-top: 2px;
+}
+
+
+/* dropdown */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu,
+.menu-right {
+    position: absolute;
+    background: #2e2e2e;
+    width: 100%;
+    top: 60px;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+
+    box-shadow: 2px 5px 10px #0f0f0f;
+}
+
+.menu-right {
+    top: 0;
+    left: 110%;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.dropdown:hover .dropdown-menu {
+    top: 34px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown-right:hover .menu-right {
+    left: 100%;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* section  */
+.section img {
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh;
+    width: 100%;
+}
+
+.img-section {
+    position: relative;
+}
+
+
+.img-section img {
+    width: 300px;
+    height: 400px;
+}
+
+.container  {
+    padding-top: 20px;
+    max-width: 80vw;
+    margin: auto;
+}
+
+.container .head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1cdfc7;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+}
+
+.products a {
+    text-decoration: none;
+    color: black;
+}
+
+.product-item {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.products .content {
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.content .product-name {
+    font-size: 13px;
+    padding: 3px 5px;
+    border: 2px solid #1cdfc7;
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+}
+
+.content .view-product {
+    margin-top: 5px;
+}
+
+
+/* hamburger */
+.hamburger {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #bb85ff;
+}
+
+/* faucets */
+.faucet-img-section img {
+    height: 150px;
+    width: auto;
+}
+
+.faucet {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.faucet a {
+    color: white;
+}
+
+.faucet a:hover {
+    color: #1cdfc7;
+    transition: all 0.5s ease-in-out;
+}
+
+/* reponsive */
+@media screen and (max-width: 970px) {
+
+    .hamburger {
+        display: flex;
+    }
+
+    .header {
+        max-width: 100vw;
+        margin: auto;
+        position: sticky;
+        top: 0;
+    }
+
+    .menu-items {
+        display: none;
+    }
+
+    .header .menu-items {
+        position: absolute;
+        height: 100vh;
+        width: 100%;
+        max-width: 60%;
+        top: 100%;
+        left: 0;
+        background: #2e2e2e;
+        display: block;
+        padding: 1rem;
+        line-height: 3rem;
+        overflow-y: auto;
+        transform: translateX(-110vw);
+        transition: transform 0.3s ease;
+    }
+
+    /* for opacity */
+    .opacity {
+        opacity: 0.5;
+        transition: all 0.3s ease;
+    }
+
+    .menu-items.open {
+        transform: translateY(0);
+    }
+
+    .menu-items li {
+        margin: 15px 10px;
+    }
+
+    .menu-items li a {
+        padding: 0 1rem;
+        display: block;
+        font-size: 1.4rem;
+    }
+
+    .menu-items li:hover {
+        background: transparent;
+    }
+
+    /* dropdown */
+    .menu-items .dropdown-menu,
+    .menu-items .menu-right {
+        position: static;
+        opacity: 1;
+        top: 4rem;
+        visibility: visible;
+        padding-left: 1rem;
+        width: 100%;
+        max-height: 0;
+        transform: scaleY(0);
+        transform-origin: top;
+        overflow: hidden;
+        transition: all 0.2s ease;
+    }
+
+    .expand-btn.open + .expandable {
+        max-height: 100%;
+        transform: scaleY(1);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .header .menu-items {
+        max-width: 100%;
+    }
+}
